@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spare Engine · Missing Documents</title>
+<style>
+  :root{
+    --navy:#0e1b33;--navy-2:#13233f;--blue:#1d4ed8;--blue-dark:#1e40af;--blue-soft:#eaf0ff;
+    --ink:#0f1b2d;--text:#1f2a3d;--muted:#64748b;--muted-2:#94a3b8;--line:#e6eaf0;--line-2:#eef1f6;
+    --bg:#f6f8fb;--white:#fff;--red:#dc2626;--red-soft:#fde8e8;--orange:#d97706;--orange-soft:#fdeccf;
+    --green:#059669;--green-soft:#d8f3e8;--grey:#64748b;--grey-soft:#eef1f5;--violet:#6d4bd8;--violet-soft:#e9e4fb;
+    --radius:14px;--shadow:0 1px 2px rgba(16,30,54,.06),0 1px 3px rgba(16,30,54,.04);--shadow-md:0 8px 24px rgba(16,30,54,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-size:14px;line-height:1.45}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1640px;margin:0 auto;padding:0 28px 60px}
+
+  .topbar{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40}
+  .topbar-inner{max-width:1640px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:36px}
+  .logo{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.5px}
+  .logo span{color:var(--orange)}
+  .topnav{display:flex;gap:26px;font-weight:600;color:#334155}
+  .topnav a{display:flex;align-items:center;gap:5px;padding:6px 0;font-size:14px}
+  .topnav a:hover{color:var(--blue)}
+  .caret{font-size:9px;color:var(--muted-2)}
+  .topbar-right{margin-left:auto;display:flex;gap:12px}
+  .btn{border:none;cursor:pointer;font-weight:600;font-size:14px;border-radius:10px;padding:10px 18px;transition:.15s}
+  .btn-ghost{background:var(--white);border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:#cbd5e1}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-dark)}
+
+  .hero{background:linear-gradient(135deg,#0e1b33 0%,#13233f 100%);border-radius:18px;color:#fff;margin-top:24px;padding:26px 30px;display:flex;gap:24px;position:relative;overflow:hidden}
+  .hero-main{flex:1;min-width:0}
+  .hero-crumb{font-size:12px;font-weight:700;letter-spacing:.5px;color:#7aa2ff;text-transform:uppercase;margin-bottom:14px}
+  .hero-crumb .sep{color:#42577d;margin:0 8px}.hero-crumb .crumb-2{color:#9fb3d6}
+  .hero-title{font-size:30px;font-weight:800;letter-spacing:-.5px}
+  .lease-tag{display:inline-block;margin-top:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:7px 13px;font-size:12px;font-weight:700;letter-spacing:.5px;color:#cdd9ee}
+  .hero-meta{margin-top:18px;display:flex;border:1px solid rgba(255,255,255,.12);border-radius:10px;overflow:hidden;width:max-content;max-width:100%}
+  .hero-meta .cell{padding:11px 20px;border-right:1px solid rgba(255,255,255,.12)}.hero-meta .cell:last-child{border-right:none}
+  .hero-meta .k{font-size:10.5px;font-weight:700;letter-spacing:.5px;color:#8ea4c8;text-transform:uppercase}
+  .hero-meta .v{font-size:15px;font-weight:700;color:#fff;margin-top:3px}
+  .hero-side{display:flex;gap:14px;align-items:flex-start}
+  .hero-logo{width:120px;height:74px;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--navy);font-size:13px;text-align:center}
+  .hero-logo small{display:block;font-size:9px;color:var(--orange);font-weight:800;letter-spacing:1px}
+  .hero-photo{width:180px;height:108px;border-radius:12px;position:relative;overflow:hidden;background:linear-gradient(160deg,#9fb6d6,#c9d6e8 55%,#aebfd8);border:1px solid rgba(255,255,255,.2)}
+  .hero-photo .plane{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:42px;opacity:.55}
+  .hero-photo .cap{position:absolute;left:8px;bottom:7px;background:rgba(8,16,32,.6);color:#fff;font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px}
+  .hero-photo .count{position:absolute;right:8px;bottom:7px;background:rgba(8,16,32,.6);color:#fff;font-size:10px;font-weight:700;padding:3px 7px;border-radius:6px}
+
+  .tabsrow{display:flex;gap:12px;margin-top:20px;align-items:center}
+  .tabs{flex:1;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:6px;display:flex;gap:4px;overflow-x:auto;box-shadow:var(--shadow)}
+  .tab{display:flex;align-items:center;gap:7px;padding:11px 16px;border-radius:10px;font-weight:600;color:#475569;white-space:nowrap;cursor:pointer;font-size:14px;transition:.15s}
+  .tab:hover{background:#f3f6fb;color:var(--ink)}
+  .tab.active{background:var(--blue);color:#fff}
+  .tab.soon{opacity:.5}
+  .tab .ico{font-size:14px;opacity:.9}
+  .tab .pill{background:#eef1f6;color:#475569;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px;line-height:1.4}
+  .tab.active .pill{background:rgba(255,255,255,.22);color:#fff}
+  .tab .pill.red{background:#ef4444;color:#fff}
+  .search-tab{background:var(--blue);color:#fff;border:none;border-radius:14px;padding:0 22px;display:flex;align-items:center;gap:8px;font-weight:600;cursor:pointer;height:50px}
+  .search-tab:hover{background:var(--blue-dark)}
+
+  .sec-title{display:flex;align-items:center;gap:9px;font-weight:800;font-size:13px;letter-spacing:.5px;color:#334155;text-transform:uppercase;margin:30px 2px 14px}
+  .sec-title .ico{font-size:15px;color:var(--muted)}
+  .sec-title .count-chip{background:#eef1f6;color:#64748b;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;letter-spacing:0;text-transform:none}
+
+  .grounded{display:flex;align-items:center;gap:15px;background:linear-gradient(120deg,#fde8e8,#fff1f1);border:1px solid #f6c4c4;border-left:5px solid var(--red);border-radius:14px;padding:16px 20px;margin-top:22px;animation:pulseRed 2.4s ease-in-out infinite}
+  @keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}50%{box-shadow:0 0 0 4px rgba(220,38,38,.10)}}
+  .grounded .icon{width:46px;height:46px;border-radius:12px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .grounded .t{font-weight:800;color:#991b1b;font-size:15px}
+  .grounded .s{color:#b3493f;font-size:13px;margin-top:2px}.grounded .s b{color:#991b1b}
+  .grounded .cta{margin-left:auto;flex-shrink:0}
+  .grounded .cta .btn{background:var(--red);color:#fff}.grounded .cta .btn:hover{background:#b91c1c}
+
+  .help-banner{display:flex;align-items:center;gap:14px;background:linear-gradient(120deg,#eaf0ff,#f3f7ff);border:1px solid #d6e2fb;border-radius:14px;padding:16px 20px;margin-top:18px}
+  .help-banner .icon{width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid #d6e2fb;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .help-banner .txt b{color:var(--ink)}
+  .help-banner .txt{color:#3a4a63;font-size:13.5px;line-height:1.5}
+  .help-banner .dismiss{margin-left:auto;cursor:pointer;color:var(--muted-2);font-size:20px;background:none;border:none;line-height:1}
+  .help-banner .dismiss:hover{color:var(--muted)}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .kpi{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow);position:relative;transition:.18s}
+  .kpi:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+  .kpi .lab{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase}
+  .kpi .val{font-size:38px;font-weight:800;color:var(--ink);margin-top:8px;letter-spacing:-1px}
+  .kpi .sub{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .kpi .accent{position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:0 4px 4px 0}
+  .kpi.red .accent{background:var(--red)} .kpi.red .val{color:var(--red)}
+  .kpi.orange .accent{background:var(--orange)}
+  .kpi.green .accent{background:var(--green)} .kpi.green .val{color:var(--green)}
+  .kpi.blue .accent{background:var(--blue)} .kpi.blue .val{color:var(--blue)}
+
+  .grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start;margin-top:8px}
+  .grid.onecol{grid-template-columns:1fr}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .card-head{padding:16px 20px;border-bottom:1px solid var(--line-2);display:flex;align-items:center;gap:10px}
+  .card-head h3{font-size:13px;font-weight:800;letter-spacing:.5px;color:#334155;text-transform:uppercase}
+  .card-head .ico{color:var(--muted)}
+  .card-head .seldoc{margin-left:auto;font-size:11px;font-weight:700;color:var(--blue);background:var(--blue-soft);padding:3px 9px;border-radius:999px;max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  .tip{position:relative;cursor:help;border-bottom:1px dotted var(--muted-2)}
+  .tip .tip-box{position:absolute;left:50%;bottom:calc(100% + 9px);transform:translateX(-50%) translateY(4px);background:var(--navy);color:#fff;font-size:11.5px;font-weight:500;line-height:1.5;padding:9px 12px;border-radius:9px;width:230px;text-align:left;opacity:0;visibility:hidden;transition:.16s;z-index:30;box-shadow:0 10px 24px rgba(10,18,33,.3);letter-spacing:0;text-transform:none}
+  .tip .tip-box::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:var(--navy)}
+  .tip:hover .tip-box{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+
+  .toolbar{padding:14px 18px;border-bottom:1px solid var(--line-2);display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .searchbox{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;background:#f5f7fb;border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+  .searchbox input{border:none;background:none;outline:none;flex:1;font-size:13.5px;color:var(--ink)}
+  .searchbox .ico{color:var(--muted-2)}
+  .filters{display:flex;gap:7px}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;font-size:12.5px;font-weight:700;cursor:pointer;color:#475569;transition:.15s;display:flex;align-items:center;gap:6px}
+  .chip:hover{border-color:#cbd5e1}
+  .chip .dot{width:8px;height:8px;border-radius:50%}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip.active .dot{box-shadow:0 0 0 2px rgba(255,255,255,.4)}
+  .dot.crit{background:var(--red)} .dot.high{background:var(--orange)} .dot.low{background:var(--grey)} .dot.all{background:var(--blue)}
+
+  .tbl-scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;min-width:1120px}
+  thead th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--muted);text-transform:uppercase;padding:13px 16px;border-bottom:1px solid var(--line);background:#fafbfd;white-space:nowrap;cursor:pointer;user-select:none}
+  thead th .arrow{font-size:9px;color:var(--muted-2);margin-left:3px}
+  tbody td{padding:14px 16px;border-bottom:1px solid var(--line-2);vertical-align:top;font-size:13.5px}
+  .row-main{cursor:pointer;transition:background .12s}
+  .row-main:hover{background:#f7faff}
+  .row-main.selected{background:#eef4ff}
+  .row-main.selected td:first-child{box-shadow:inset 3px 0 0 var(--blue)}
+  .doc-name{font-weight:700;color:var(--ink)}
+  .muted{color:var(--muted)}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:.4px;padding:4px 10px;border-radius:7px;text-transform:uppercase}
+  .badge .d{width:7px;height:7px;border-radius:50%}
+  .b-crit{background:var(--red-soft);color:var(--red)} .b-crit .d{background:var(--red)}
+  .b-high{background:var(--orange-soft);color:var(--orange)} .b-high .d{background:var(--orange)}
+  .b-low{background:var(--grey-soft);color:var(--grey)} .b-low .d{background:var(--grey)}
+  .status-tag{font-size:12px;font-weight:700;color:#475569;display:inline-flex;align-items:center;gap:5px}
+  .status-tag.wait{color:var(--red)} .status-tag.verify{color:var(--orange)} .status-tag.np{color:var(--grey)}
+  .status-tag.recv{color:var(--green)} .status-tag.sent{color:var(--blue)}
+  .actions-cell{display:flex;gap:8px;flex-wrap:wrap}
+  .ev-btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 11px;font-size:12px;font-weight:700;color:var(--blue);cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .ev-btn:hover{background:var(--blue-soft);border-color:#c7d6f7}
+  .up-btn{border:1px solid #c7d6f7;background:var(--blue);color:#fff;border-radius:8px;padding:6px 11px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;transition:.15s}
+  .up-btn:hover{background:var(--blue-dark)}
+  .up-btn.done{background:var(--green-soft);color:var(--green);border-color:#b6e6d2}
+  .req-btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 11px;font-size:12px;font-weight:700;color:#475569;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;transition:.15s}
+  .req-btn:hover{background:#f3f6fb;border-color:#cbd5e1}
+  .req-btn.sent{color:var(--blue);border-color:#c7d6f7;background:var(--blue-soft)}
+  .expand-ico{display:inline-block;transition:transform .2s;color:var(--muted-2);margin-right:6px;font-size:11px}
+  .row-main.open .expand-ico{transform:rotate(90deg)}
+
+  .detail-row td{padding:0;border-bottom:1px solid var(--line-2);background:#f7faff}
+  .detail-inner{padding:0 22px;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .28s ease}
+  .detail-row.open .detail-inner{max-height:480px;padding:18px 22px}
+  .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .detail-box{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+  .detail-box .k{font-size:10.5px;font-weight:700;letter-spacing:.4px;color:var(--muted);text-transform:uppercase}
+  .detail-box .v{font-size:13.5px;color:var(--ink);margin-top:5px;font-weight:600}
+  .detail-box.full{grid-column:1/-1}
+  .detail-actions{grid-column:1/-1;display:flex;gap:9px;flex-wrap:wrap;margin-top:2px}
+
+  .flow{padding:18px}
+  .flow-step{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 14px;display:flex;align-items:flex-start;gap:11px;box-shadow:var(--shadow);position:relative;transition:.18s}
+  .flow-step:hover{border-color:#c7d6f7;transform:translateX(3px)}
+  .flow-step .n{width:26px;height:26px;border-radius:8px;background:var(--blue-soft);color:var(--blue);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .flow-step .t{font-weight:700;font-size:13px;color:var(--ink)}
+  .flow-step .s{font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.45}
+  .flow-step.decide{background:linear-gradient(120deg,#0e1b33,#1b3360);border:none;color:#fff}
+  .flow-step.decide .t{color:#fff}.flow-step.decide .s{color:#9fb3d6}
+  .flow-step.decide .n{background:rgba(255,255,255,.16);color:#fff}
+  .go-no{margin-left:auto;display:flex;gap:6px;flex-shrink:0}
+  .go-no span{font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:6px}
+  .go{background:var(--green);color:#fff}.no{background:rgba(255,255,255,.15);color:#cbd5e1}
+  .arrow-down{display:flex;justify-content:center;color:var(--muted-2);font-size:14px;margin:5px 0}
+
+  .side{display:flex;flex-direction:column;gap:22px}
+  .block-body{padding:18px 20px}
+  .risk{margin-bottom:16px}.risk:last-child{margin-bottom:0}
+  .risk .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+  .risk .nm{font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase}
+  .risk .ct{font-size:12px;font-weight:800;color:var(--muted)}
+  .risk .bar{height:9px;border-radius:999px;background:#eef1f5;overflow:hidden}
+  .risk .fill{height:100%;border-radius:999px;width:0;transition:width 1s cubic-bezier(.2,.7,.2,1)}
+  .risk.u .nm{color:var(--red)} .risk.u .fill{background:var(--red)}
+  .risk.m .nm{color:var(--orange)} .risk.m .fill{background:var(--orange)}
+  .risk.l .nm{color:var(--grey)} .risk.l .fill{background:var(--grey)}
+  .risk .desc{font-size:12px;color:var(--muted);margin-top:7px;line-height:1.5}
+  .risk .desc b{color:var(--text);font-weight:700}
+
+  .src-ai-tag{display:inline-flex;align-items:center;gap:6px;background:var(--blue-soft);color:var(--blue);font-size:11px;font-weight:800;padding:5px 11px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase}
+  .src-company{font-size:17px;font-weight:800;color:var(--ink);margin:13px 0 4px}
+  .src-reason{font-size:12.5px;color:var(--muted);margin-bottom:6px;font-weight:600}
+  .src-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:8px}
+  .src-list li{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--text)}
+  .src-list li .tick{width:18px;height:18px;border-radius:6px;background:var(--green-soft);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex-shrink:0}
+  .conf{margin-top:16px;background:#f5f7fb;border:1px solid var(--line);border-radius:11px;padding:13px 15px}
+  .conf .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .conf .lab{font-size:11px;font-weight:700;letter-spacing:.4px;color:var(--muted);text-transform:uppercase}
+  .conf .pct{font-size:18px;font-weight:800;color:var(--green)}
+  .conf .bar{height:8px;border-radius:999px;background:#e4e9f0;overflow:hidden}
+  .conf .fill{height:100%;background:linear-gradient(90deg,var(--green),#34d399);border-radius:999px;width:0;transition:width 1.1s ease}
+  .conf .legend{font-size:11.5px;color:var(--muted);margin-top:9px;line-height:1.5}
+  .src-req{margin-top:14px;width:100%;justify-content:center}
+
+  .ev-head{cursor:pointer;display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:1px solid transparent}
+  .ev-head.open{border-bottom-color:var(--line-2)}
+  .ev-head .chev{margin-left:auto;color:var(--muted-2);transition:transform .2s}
+  .ev-head.open .chev{transform:rotate(180deg)}
+  .ev-count{background:#eef1f6;color:#64748b;font-size:11px;font-weight:800;padding:2px 8px;border-radius:999px}
+  .ev-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .ev-body.open{max-height:1000px}
+  .ev-inner{padding:6px 20px 18px}
+  .ev-item{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line-2)}
+  .ev-item:last-child{border-bottom:none}
+  .ev-item .pin{width:30px;height:30px;border-radius:9px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+  .ev-item .t{font-weight:700;font-size:13px;color:var(--ink)}
+  .ev-item .s{font-size:12px;color:var(--muted);margin-top:1px}
+  .ev-item .file{font-size:11.5px;color:var(--blue);font-weight:700;margin-top:3px}
+  .ev-item .dt{margin-left:auto;font-size:11px;color:var(--muted-2);font-weight:700;white-space:nowrap}
+
+  .modal-bg{position:fixed;inset:0;background:rgba(10,18,33,.5);backdrop-filter:blur(2px);display:none;align-items:center;justify-content:center;z-index:80;padding:24px}
+  .modal-bg.open{display:flex}
+  .modal{background:#fff;border-radius:16px;max-width:580px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,.3);animation:pop .22s ease;overflow:hidden}
+  .modal.wide{max-width:640px}
+  @keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+  .modal-head{background:linear-gradient(135deg,#0e1b33,#13233f);color:#fff;padding:20px 24px}
+  .modal-head .badge{margin-bottom:10px}
+  .modal-head h2{font-size:18px;font-weight:800}
+  .modal-head .sub{color:#9fb3d6;font-size:13px;margin-top:4px}
+  .modal-body{padding:22px 24px;max-height:62vh;overflow:auto}
+  .modal-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line-2)}
+  .modal-row:last-child{border-bottom:none}
+  .modal-row .k{color:var(--muted);font-size:12.5px;font-weight:700}
+  .modal-row .v{font-weight:700;color:var(--ink);text-align:right;font-size:13.5px;max-width:62%}
+  .modal-foot{padding:16px 24px;border-top:1px solid var(--line-2);display:flex;justify-content:flex-end;gap:10px}
+  .x-close{margin-left:auto;cursor:pointer;font-size:20px;color:rgba(255,255,255,.6);line-height:1}
+  .x-close:hover{color:#fff}
+
+  /* expected documents list (event modal) */
+  .exp-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line-2)}
+  .exp-item:last-child{border-bottom:none}
+  .exp-ic{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+  .exp-ic.ok{background:var(--green-soft);color:var(--green)}
+  .exp-ic.miss{background:var(--red-soft);color:var(--red)}
+  .exp-name{font-weight:700;color:var(--ink);font-size:13.5px}
+  .exp-stat{font-size:11.5px;font-weight:700;margin-top:1px}
+  .exp-stat.ok{color:var(--green)} .exp-stat.miss{color:var(--red)} .exp-stat.sent{color:var(--blue)}
+  .exp-act{margin-left:auto;display:flex;gap:7px;flex-shrink:0}
+  .mini-btn{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 10px;font-size:11.5px;font-weight:700;color:var(--blue);cursor:pointer;white-space:nowrap}
+  .mini-btn:hover{background:var(--blue-soft);border-color:#c7d6f7}
+  .mini-btn.primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .mini-btn.primary:hover{background:var(--blue-dark)}
+  .evt-summary{display:flex;gap:14px;margin-bottom:6px}
+  .evt-summary .s-box{flex:1;background:#f5f7fb;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+  .evt-summary .k{font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--muted);text-transform:uppercase}
+  .evt-summary .v{font-size:14px;font-weight:800;color:var(--ink);margin-top:3px}
+  .evt-summary .v.miss{color:var(--red)}
+
+  /* email draft */
+  .mail{border:1px solid var(--line);border-radius:11px;overflow:hidden;margin-top:14px}
+  .mail-line{display:flex;gap:8px;padding:9px 13px;border-bottom:1px solid var(--line-2);font-size:13px}
+  .mail-line .lab{color:var(--muted);font-weight:700;width:64px;flex-shrink:0}
+  .mail-line .val{color:var(--ink);font-weight:600}
+  .mail-body{border:none;width:100%;padding:13px;font-family:inherit;font-size:13px;color:var(--text);line-height:1.6;resize:vertical;min-height:120px;outline:none}
+  .mail-tag{font-size:11px;font-weight:700;color:var(--muted);background:#f3f6fb;padding:3px 9px;border-radius:999px;margin-left:auto}
+
+  .empty{padding:48px 24px;text-align:center}
+  .empty .face{font-size:40px;margin-bottom:10px}
+  .empty .t{font-weight:800;color:var(--ink);font-size:15px}
+  .empty .s{color:var(--muted);font-size:13px;margin-top:5px}
+
+  .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:13px 20px;border-radius:12px;font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 36px rgba(10,18,33,.34);opacity:0;visibility:hidden;transition:.28s;z-index:90}
+  .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .toast .ck{width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900}
+
+  .view{display:none}.view.active{display:block}
+  .tl-legend{display:flex;gap:16px;flex-wrap:wrap;margin:6px 2px 0;font-size:12.5px;color:var(--muted)}
+  .tl-legend span{display:inline-flex;align-items:center;gap:7px}
+  .tl-legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .tl-hint{font-size:12.5px;color:var(--muted);margin:10px 2px 0}
+  .tl{position:relative;margin-top:14px;padding-left:6px}
+  .tl-year-head{display:flex;align-items:center;gap:12px;margin:22px 0 12px}
+  .tl-year-head .yr{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.5px}
+  .tl-year-head .ln{flex:1;height:1px;background:var(--line)}
+  .tl-year-head .cnt{font-size:11.5px;font-weight:700;color:var(--muted);background:#eef1f6;padding:3px 10px;border-radius:999px}
+  .tl-track{position:relative;padding-left:34px}
+  .tl-track::before{content:"";position:absolute;left:13px;top:2px;bottom:2px;width:2px;background:var(--line)}
+  .tl-event{position:relative;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px;box-shadow:var(--shadow);transition:.16s;cursor:pointer}
+  .tl-event:hover{transform:translateX(3px);border-color:#c7d6f7;box-shadow:var(--shadow-md)}
+  .tl-event .node{position:absolute;left:-27px;top:16px;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--blue);box-shadow:0 0 0 3px #fff}
+  .tl-event.delivery .node{border-color:var(--green)}
+  .tl-event.repair .node{border-color:var(--orange)}
+  .tl-event.alert .node{border-color:var(--red);background:var(--red)}
+  .tl-event .top{display:flex;align-items:flex-start;gap:10px}
+  .tl-event .etype{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:3px 9px;border-radius:7px}
+  .et-flight{background:var(--blue-soft);color:var(--blue)}
+  .et-repair{background:var(--orange-soft);color:var(--orange)}
+  .et-inspect{background:var(--grey-soft);color:var(--grey)}
+  .et-deliver{background:var(--green-soft);color:var(--green)}
+  .et-install{background:var(--violet-soft);color:var(--violet)}
+  .et-alert{background:var(--red);color:#fff}
+  .tl-event .date{margin-left:auto;font-size:12px;font-weight:700;color:var(--muted)}
+  .tl-event h4{font-size:14px;font-weight:800;color:var(--ink);margin-top:8px}
+  .tl-event p{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .tl-docs{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+  .tl-chip{font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:7px;display:inline-flex;align-items:center;gap:5px}
+  .tl-chip.ok{background:var(--green-soft);color:var(--green)}
+  .tl-chip.miss{background:var(--red-soft);color:var(--red)}
+  .tl-event.alert{border-color:#f6c4c4;border-left:5px solid var(--red);background:linear-gradient(120deg,#fff,#fff5f5)}
+  .tl-event.alert h4{color:#991b1b}
+  .ground-pill{display:inline-flex;align-items:center;gap:7px;background:var(--red);color:#fff;font-size:11.5px;font-weight:800;padding:6px 12px;border-radius:999px;margin-top:10px;letter-spacing:.3px}
+  .tl-open{font-size:11px;color:var(--muted-2);font-weight:700;margin-top:9px;display:block}
+
+  .crm-sources{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .crm-source{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;display:flex;align-items:center;gap:13px}
+  .crm-source .ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+  .crm-source .t{font-weight:800;color:var(--ink);font-size:14px}
+  .crm-source .s{font-size:12.5px;color:var(--muted);margin-top:1px}
+  .crm-source .src-state{margin-left:auto;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap;background:var(--green-soft);color:var(--green)}
+  .crm-avatar{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;margin-right:9px;flex-shrink:0}
+  .crm-name{display:flex;align-items:center}
+  .origin-tag{font-size:11px;font-weight:800;padding:3px 9px;border-radius:7px;white-space:nowrap}
+  .origin-crm{background:var(--blue-soft);color:var(--blue)}
+  .origin-doc{background:var(--green-soft);color:var(--green)}
+  .cm-contact{display:flex;align-items:center;gap:13px;padding-bottom:14px;border-bottom:1px solid var(--line-2);margin-bottom:6px}
+  .cm-contact .av{width:48px;height:48px;border-radius:14px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;flex-shrink:0}
+  .cm-contact .nm{font-weight:800;color:var(--ink);font-size:15px}
+  .cm-contact .cp{font-size:12.5px;color:var(--muted)}
+  .cm-link{display:flex;gap:9px;align-items:flex-start;background:var(--blue-soft);border:1px solid #d6e2fb;border-radius:10px;padding:11px 13px;margin-top:12px}
+  .cm-link .k{font-size:10.5px;font-weight:800;letter-spacing:.4px;color:var(--blue);text-transform:uppercase}
+  .cm-link .v{font-size:12.5px;color:var(--text);margin-top:3px;line-height:1.5}
+
+  /* timeline toolbar */
+  .tl-toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 2px 0;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
+  .tl-toolbar .tl-count{font-size:12.5px;color:var(--muted);font-weight:600}
+  .tl-toolbar .tl-count b{color:var(--ink)}
+  .tl-toolbar .spacer{flex:1}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg button{border:none;background:#fff;padding:7px 12px;font-size:12.5px;font-weight:700;color:#475569;cursor:pointer;transition:.12s}
+  .seg button+button{border-left:1px solid var(--line)}
+  .seg button.on{background:var(--blue);color:#fff}
+  .toggle-miss{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:7px 12px;font-size:12.5px;font-weight:700;color:#475569;cursor:pointer;transition:.12s}
+  .toggle-miss:hover{border-color:#cbd5e1}
+  .toggle-miss.on{background:var(--red-soft);color:var(--red);border-color:#f6c4c4}
+  .toggle-miss .sw{width:30px;height:17px;border-radius:999px;background:#cbd5e1;position:relative;transition:.15s;flex-shrink:0}
+  .toggle-miss .sw::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff;transition:.15s}
+  .toggle-miss.on .sw{background:var(--red)}
+  .toggle-miss.on .sw::after{left:15px}
+  .tl-empty{padding:36px;text-align:center;color:var(--muted);background:var(--white);border:1px dashed var(--line);border-radius:12px;margin-top:14px}
+  .tl-empty .face{font-size:34px;margin-bottom:8px}
+  .tl-event.flash{animation:flashCard 1.9s ease}
+  @keyframes flashCard{0%{box-shadow:0 0 0 0 rgba(29,78,216,.0);border-color:var(--line)}18%{box-shadow:0 0 0 5px rgba(29,78,216,.28);border-color:var(--blue)}100%{box-shadow:var(--shadow);border-color:var(--line)}}
+  .locate-tag{font-size:11px;font-weight:800;color:var(--blue);background:var(--blue-soft);padding:5px 10px;border-radius:999px;margin-left:8px}
+
+  /* AI assistant FAB + popup */
+  .ai-fab{position:fixed;right:22px;bottom:22px;z-index:70;border:none;cursor:pointer;background:var(--blue);color:#fff;font-weight:800;font-size:14px;padding:13px 18px;border-radius:999px;box-shadow:0 10px 28px rgba(29,78,216,.4);display:flex;align-items:center;gap:9px;transition:.15s}
+  .ai-fab:hover{background:var(--blue-dark);transform:translateY(-2px)}
+  .ai-fab .dotpulse{width:9px;height:9px;border-radius:50%;background:#7ee3c4;animation:fabpulse 2s infinite}
+  @keyframes fabpulse{0%{box-shadow:0 0 0 0 rgba(126,227,196,.6)}70%{box-shadow:0 0 0 8px rgba(126,227,196,0)}100%{box-shadow:0 0 0 0 rgba(126,227,196,0)}}
+  .ai-pop{position:fixed;right:22px;bottom:22px;z-index:71;width:372px;max-width:calc(100vw - 28px);max-height:82vh;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(10,18,33,.28);display:none;flex-direction:column;overflow:hidden;animation:pop .2s ease}
+  .ai-pop.open{display:flex}
+  .ai-pop-head{background:linear-gradient(135deg,#0e1b33,#16294a);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .ai-pop-title{font-weight:800;font-size:13.5px;letter-spacing:.3px}
+  .ai-pop-x{margin-left:auto;cursor:pointer;font-size:22px;color:rgba(255,255,255,.65);line-height:1}
+  .ai-pop-x:hover{color:#fff}
+  .ai-pop-body{overflow-y:auto;padding:12px 14px}
+  .ai-acc{border:1px solid var(--line);border-radius:11px;margin-bottom:11px;overflow:hidden}
+  .ai-acc:last-child{margin-bottom:0}
+  .ai-acc-head{display:flex;align-items:center;gap:8px;padding:11px 13px;cursor:pointer;font-weight:800;font-size:12.5px;color:#334155;background:#fafbfd}
+  .ai-acc-head .chev{margin-left:auto;color:var(--muted-2);transition:.2s}
+  .ai-acc.open .ai-acc-head .chev{transform:rotate(180deg)}
+  .ai-acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 13px}
+  .ai-acc.open .ai-acc-body{max-height:1500px;padding:2px 13px 12px}
+  @media(max-width:560px){.ai-fab .lbl{display:none}.ai-pop{right:10px;left:10px;bottom:10px;width:auto}}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1180px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.crm-sources{grid-template-columns:1fr}}
+  @media(max-width:900px){
+    .wrap{padding:0 18px 50px}
+    .hero{flex-direction:column;padding:22px}
+    .hero-side{align-self:flex-start}
+    .hero-title{font-size:25px}
+    .hero-meta{flex-wrap:wrap;width:100%}
+    .hero-meta .cell{flex:1;min-width:33%}
+    .kpi .val{font-size:32px}
+    .modal,.modal.wide{max-width:100%}
+    .detail-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .kpis{grid-template-columns:1fr}
+    .detail-grid{grid-template-columns:1fr}
+    .evt-summary{flex-direction:column}
+    .topnav{display:none}
+    .topbar-inner{gap:14px}
+    .hero-meta .cell{min-width:50%;border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+    .sec-title{font-size:12px}
+    .tl-track{padding-left:24px}
+    .tl-track::before{left:8px}
+    .tl-event .node{left:-22px}
+    .tl-event .date{margin-left:0;width:100%;margin-top:2px}
+    .tl-event .top{flex-wrap:wrap}
+    .crm-sources{grid-template-columns:1fr}
+    .modal-body{max-height:70vh}
+    table{min-width:780px}
+    .grounded{flex-wrap:wrap}.grounded .cta{margin-left:0;width:100%}.grounded .cta .btn{width:100%}
+    .help-banner{flex-wrap:wrap}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">sparengine<span>.</span></div>
+    <nav class="topnav">
+      <a>Inside Sparengine <span class="caret">▼</span></a>
+      <a>What We Deliver <span class="caret">▼</span></a>
+      <a>Careers</a>
+    </nav>
+    <div class="topbar-right"><button class="btn btn-ghost">Login</button><button class="btn btn-primary">Contact Us</button></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-main">
+      <div class="hero-crumb">MERIDIAN ASSET PARTNERS <span class="sep">·</span><span class="crumb-2">COMPONENT RUNOUT</span></div>
+      <div class="hero-title">ATR72-212A · MSN 0001</div>
+      <span class="lease-tag">LEASE RETURN</span>
+      <span class="lease-tag" style="margin-left:8px;color:#bcdcff;border-color:rgba(122,162,255,.35)">PRIVATE AVIATION</span>
+      <div class="hero-meta">
+        <div class="cell"><div class="k">Registration</div><div class="v">9H-SLA</div></div>
+        <div class="cell"><div class="k">Operator</div><div class="v">Solara Regional</div></div>
+        <div class="cell"><div class="k">Dossier Date</div><div class="v">21/10/2025</div></div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-logo">SP<small>SPARENGINE</small></div>
+      <div class="hero-photo"><div class="plane">✈</div><span class="cap">ATR72-212A</span><span class="count">📷 3</span></div>
+    </div>
+  </section>
+
+  <div class="tabsrow">
+    <nav class="tabs">
+      <div class="tab soon">Overview <span class="pill">67</span></div>
+      <div class="tab soon">LH Engine</div>
+      <div class="tab soon">RH Engine</div>
+      <div class="tab soon">Landing Gear</div>
+      <div class="tab soon">Propellers</div>
+      <div class="tab soon">Findings <span class="pill red">260</span></div>
+      <div class="tab soon">Documents</div>
+      <div class="tab active" id="tabMissing" data-view="missing">Missing Documents <span class="pill red">67</span></div>
+      <div class="tab soon">Data</div>
+      <div class="tab" data-view="timeline">Timeline</div>
+      <div class="tab" data-view="crm">CRM</div>
+    </nav>
+    <button class="search-tab" id="searchTab">🔍 Search</button>
+  </div>
+
+  <div class="grounded" id="grounded">
+    <div class="icon">⛔</div>
+    <div>
+      <div class="t">AIRCRAFT GROUNDED — Aircraft cannot take off</div>
+      <div class="s"><b>2 critical documents missing</b> block airworthiness — including the <b>Engine Maintenance Release Certificate</b> (Engine LH replacement, 14/05/2024). Part installed without release evidence.</div>
+    </div>
+    <div class="cta"><button class="btn" id="goToDoc">View blocking document →</button></div>
+  </div>
+
+  <!-- ============ MISSING DOCUMENTS ============ -->
+  <div class="view active" id="view-missing">
+
+    <div class="help-banner" id="helpBanner">
+      <div class="icon">💡</div>
+      <div class="txt"><b>Audit d'aviation privée — récolte pilotée par l'événement.</b>
+        Spare Engine part de chaque événement de maintenance, déduit les documents attendus, repère ceux qui manquent et identifie qui les détient. Chargez-les, ou envoyez une demande au bon contact en un clic.</div>
+      <button class="dismiss" id="helpDismiss" title="Masquer">×</button>
+    </div>
+
+    <div class="sec-title"><span class="ico">📊</span> Missing Documents Overview</div>
+    <div class="kpis">
+      <div class="kpi red"><div class="accent"></div><div class="lab">⚠ Total Missing Documents</div><div class="val" id="kpiTotal">67</div><div class="sub">Detected across the dossier</div></div>
+      <div class="kpi orange"><div class="accent"></div><div class="lab">🔥 Urgent Documents</div><div class="val" id="kpiUrgent">12</div><div class="sub">Blocking airworthiness / sale</div></div>
+      <div class="kpi green"><div class="accent"></div><div class="lab">✓ Documents Recovered</div><div class="val" id="kpiRecovered">45</div><div class="sub">Sourced & verified by AI</div></div>
+      <div class="kpi blue"><div class="accent"></div><div class="lab">🤖 AI Match Confidence</div><div class="val" id="kpiConf">79%</div><div class="sub">Avg. across detected documents</div></div>
+    </div>
+
+    <div class="grid onecol">
+      <div>
+        <div class="sec-title"><span class="ico">🗂</span> Missing Documents <span class="count-chip" id="rowCount">6 of 6</span></div>
+        <div class="card">
+          <div class="toolbar">
+            <div class="searchbox"><span class="ico">🔍</span><input id="search" placeholder="Search document, component, event…" /></div>
+            <div class="filters">
+              <div class="chip active" data-f="all"><span class="dot all"></span>All</div>
+              <div class="chip" data-f="critical"><span class="dot crit"></span>Critical</div>
+              <div class="chip" data-f="high"><span class="dot high"></span>High</div>
+              <div class="chip" data-f="low"><span class="dot low"></span>Low</div>
+            </div>
+          </div>
+          <div class="tbl-scroll">
+            <table>
+              <thead><tr>
+                <th data-sort="priority">Priority <span class="arrow">↕</span></th>
+                <th data-sort="doc">Document Missing <span class="arrow">↕</span></th>
+                <th data-sort="event">Related Event</th>
+                <th data-sort="date">Event Date <span class="arrow">↕</span></th>
+                <th data-sort="component">Component</th>
+                <th><span class="tip">Detected Cause<span class="tip-box">Pourquoi l'IA pense que ce document manque, d'après l'événement de maintenance lié.</span></span></th>
+                <th><span class="tip">Potential Source<span class="tip-box">L'organisation la plus susceptible de détenir ce document, déduite de la timeline de l'avion.</span></span></th>
+                <th data-sort="status">Status</th>
+                <th>Actions</th>
+              </tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sec-title"><span class="ico">🎚</span> Risk Classification</div>
+        <div class="card"><div class="block-body">
+          <div class="risk u"><div class="top"><span class="nm">Urgent</span><span class="ct">12</span></div><div class="bar"><div class="fill" data-w="78"></div></div><div class="desc">Documents blocking <b>aircraft sale</b>, <b>airworthiness review</b> and <b>lease return</b>.</div></div>
+          <div class="risk m"><div class="top"><span class="nm">Moderate</span><span class="ct">28</span></div><div class="bar"><div class="fill" data-w="52"></div></div><div class="desc">Documents affecting <b>future maintenance planning</b> and component traceability.</div></div>
+          <div class="risk l"><div class="top"><span class="nm">Low Priority</span><span class="ct">27</span></div><div class="bar"><div class="fill" data-w="32"></div></div><div class="desc">Documents useful for completeness but <b>not operationally blocking</b>.</div></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============ TIMELINE ============ -->
+  <div class="view" id="view-timeline">
+    <div class="sec-title"><span class="ico">🕓</span> Aircraft Life Timeline · 9H-SLA</div>
+    <div class="tl-legend">
+      <span><i style="background:var(--green)"></i> Delivery</span>
+      <span><i style="background:var(--blue)"></i> Flight</span>
+      <span><i style="background:var(--violet)"></i> Component install</span>
+      <span><i style="background:var(--orange)"></i> Repair</span>
+      <span><i style="background:var(--grey)"></i> Inspection</span>
+      <span><i style="background:var(--red)"></i> Non-conformity / grounding</span>
+    </div>
+    <div class="tl-hint">👉 Cliquez un événement pour voir les <b>documents attendus</b> pour ce type d'événement et lancer leur récolte.</div>
+    <div class="tl-toolbar">
+      <span class="tl-count" id="tlCount"></span>
+      <span class="spacer"></span>
+      <div class="toggle-miss" id="missOnly"><span class="sw"></span> Documents manquants uniquement</div>
+      <div class="seg" id="tlSort">
+        <button data-dir="desc" class="on">Plus récent d'abord</button>
+        <button data-dir="asc">Plus ancien d'abord</button>
+      </div>
+    </div>
+    <div class="tl" id="timeline"></div>
+  </div>
+
+  <!-- ============ CRM ============ -->
+  <div class="view" id="view-crm">
+    <div class="help-banner" id="crmHelp">
+      <div class="icon">👥</div>
+      <div class="txt"><b>CRM — base de contacts pour vos audits.</b>
+        Les contacts proviennent du CRM connecté de votre société et des noms de sociétés / mécaniciens extraits par l'IA des documents uploadés. Quand vous cliquez « Request document », Spare Engine ouvre automatiquement le bon contact avec un email prérempli.</div>
+      <button class="dismiss" id="crmHelpDismiss" title="Masquer">×</button>
+    </div>
+    <div class="sec-title"><span class="ico">🔌</span> Sources <span class="count-chip">2</span></div>
+    <div class="crm-sources">
+      <div class="crm-source"><div class="ic" style="background:var(--blue-soft);color:var(--blue)">🔗</div><div><div class="t">Connected CRM</div><div class="s">Synced · contacts liés aux documents du dossier</div></div><span class="src-state">Connected</span></div>
+      <div class="crm-source"><div class="ic" style="background:var(--green-soft);color:var(--green)">📄</div><div><div class="t">From uploaded documents</div><div class="s">Noms extraits par l'IA des documents récemment ajoutés</div></div><span class="src-state">2 contacts</span></div>
+    </div>
+    <div class="sec-title"><span class="ico">👥</span> Contacts <span class="count-chip" id="crmCount">5</span></div>
+    <div class="card"><div class="tbl-scroll"><table>
+      <thead><tr><th>Contact</th><th>Company</th><th>Role</th><th>Origin</th><th>Linked documents</th><th>Found in</th><th>Action</th></tr></thead>
+      <tbody id="crmBody"></tbody>
+    </table></div></div>
+  </div>
+
+</div>
+
+<!-- Floating AI assistant (bottom-right) -->
+<button class="ai-fab" id="aiFab"><span class="dotpulse"></span>🤖 <span class="lbl">Assistant IA</span></button>
+<div class="ai-pop" id="aiPop">
+  <div class="ai-pop-head">
+    <span class="ai-pop-title">🤖 Assistant IA — Récolte</span>
+    <span class="ai-pop-x" id="aiPopClose">×</span>
+  </div>
+  <div class="ai-pop-body">
+    <div class="ai-acc open" data-acc>
+      <div class="ai-acc-head"><span>🧠 AI Missing Documents Analysis</span><span class="chev">▾</span></div>
+      <div class="ai-acc-body"><div class="flow" style="padding:14px 0 4px">
+        <div class="flow-step"><div class="n">1</div><div><div class="t">Missing document detected</div><div class="s">L'IA repère qu'un document attendu est absent du dossier.</div></div></div>
+        <div class="arrow-down">↓</div>
+        <div class="flow-step"><div class="n">2</div><div><div class="t">Aircraft timeline analysis</div><div class="s">Les 1 756 événements de l'avion sont parcourus.</div></div></div>
+        <div class="arrow-down">↓</div>
+        <div class="flow-step"><div class="n">3</div><div><div class="t">Event identification</div><div class="s">L'événement à l'origine du manque est identifié.</div></div></div>
+        <div class="arrow-down">↓</div>
+        <div class="flow-step"><div class="n">4</div><div><div class="t">Expected evidence detection</div><div class="s">L'IA déduit quel document aurait dû exister.</div></div></div>
+        <div class="arrow-down">↓</div>
+        <div class="flow-step"><div class="n">5</div><div><div class="t">Risk qualification</div><div class="s">L'impact sur l'avion est évalué et classé.</div></div></div>
+        <div class="arrow-down">↓</div>
+        <div class="flow-step decide"><div class="n">6</div><div><div class="t">Conformity decision</div><div class="s">Vérification de navigabilité.</div></div><div class="go-no"><span class="go">GO</span><span class="no">NO GO</span></div></div>
+        <div class="arrow-down">↓</div>
+        <div class="flow-step"><div class="n">7</div><div><div class="t">Source identification</div><div class="s">Le contact le plus probable est suggéré.</div></div></div>
+      </div></div>
+    </div>
+    <div class="ai-acc open" data-acc>
+      <div class="ai-acc-head"><span>🎯 Recommended Recovery Source</span><span class="chev">▾</span></div>
+      <div class="ai-acc-body"><div id="srcBody" style="padding-top:8px"></div></div>
+    </div>
+    <div class="ai-acc open" data-acc>
+      <div class="ai-acc-head"><span>📎 Evidence Used By AI</span><span class="ev-count" id="evCount" style="margin-left:auto;margin-right:8px">6</span><span class="chev">▾</span></div>
+      <div class="ai-acc-body"><div class="ev-inner" id="evInner" style="padding:4px 0 0"></div></div>
+    </div>
+  </div>
+</div>
+<span id="srcSel" style="display:none"></span>
+
+<input type="file" id="fileInput" style="display:none" />
+<div class="toast" id="toast"><span class="ck">✓</span><span id="toastMsg"></span></div>
+
+<!-- Event modal: expected documents for an event -->
+<div class="modal-bg" id="eventModalBg"><div class="modal wide">
+  <div class="modal-head"><div style="display:flex;align-items:flex-start"><span id="emType" class="src-ai-tag" style="background:rgba(255,255,255,.14);color:#fff"></span><span class="x-close" id="emClose">×</span></div><h2 id="emTitle"></h2><div class="sub" id="emSub"></div></div>
+  <div class="modal-body" id="emBody"></div>
+  <div class="modal-foot"><button class="btn btn-ghost" id="emCancel">Close</button></div>
+</div></div>
+
+<!-- CRM contact + email draft modal -->
+<div class="modal-bg" id="crmModalBg"><div class="modal wide">
+  <div class="modal-head"><div style="display:flex;align-items:flex-start"><span class="src-ai-tag" style="background:rgba(255,255,255,.14);color:#fff">🤖 AI-matched contact</span><span class="x-close" id="cmClose">×</span></div><h2 id="cmName"></h2><div class="sub" id="cmRole"></div></div>
+  <div class="modal-body" id="cmBody"></div>
+  <div class="modal-foot"><button class="btn btn-ghost" id="cmCancel">Cancel</button><button class="btn btn-primary" id="cmSend">✉ Send request</button></div>
+</div></div>
+
+<!-- Document detail modal -->
+<div class="modal-bg" id="modalBg"><div class="modal">
+  <div class="modal-head"><div style="display:flex;align-items:flex-start"><span id="mBadge"></span><span class="x-close" id="mClose">×</span></div><h2 id="mTitle"></h2><div class="sub" id="mSub"></div></div>
+  <div class="modal-body" id="mBody"></div>
+  <div class="modal-foot"><button class="btn btn-ghost" id="mCancel">Close</button><button class="btn btn-ghost" id="mLocate">🕓 Localiser dans la timeline</button><button class="btn btn-primary" id="mReq">✉ Request Document</button></div>
+</div></div>
+
+<script>
+const DATA=[
+  {id:1,priority:"critical",priorityRank:3,urgent:true,doc:"Engine Maintenance Release Certificate",event:"Engine LH replacement",date:"14/05/2024",dateSort:20240514,component:"PW127M Engine",cause:"Replacement event detected but release document missing",source:"Aircraft Maintenance Company / Hangar provider",status:"Waiting request",statusClass:"wait",
+    detail:{why:"A documented engine swap appears in the timeline (WO #964245) but no EASA Form 1 / Maintenance Release accompanies the installation. Without it the engine cannot be certified airworthy and the aircraft is grounded.",causeEvent:"Engine LH replacement (installation leg)",expected:"EASA Form 1 · Engine Release to Service",impact:"Blocks airworthiness review & lease return — aircraft cannot take off"},
+    crm:{name:"James Holloway",role:"Maintenance Records Manager",company:"Example Aviation Maintenance Ltd",email:"j.holloway@exampleavmro.com",phone:"+44 20 7946 0112",origin:"Connected CRM",conf:"92%",linkReason:"Lié par l'IA via le nom de société figurant sur le Work Order #964245 et la signature du technicien « K. Dubois » (Hangar A12, 14/05/2024)."},
+    evidence:[{ic:"📄",t:"Work Order #964245",s:"Engine removal & replacement order",f:"WO_964245.pdf · p.3",d:"14/05/2024"},{ic:"🗓",t:"Engine removal log entry",s:"Detected in maintenance timeline",f:"logbook_2024.pdf · p.118",d:"14/05/2024"},{ic:"✍",t:"Technician sign-off sheet",s:"Installation signed — release not attached",f:"signoff_EA1001.pdf",d:"15/05/2024"},{ic:"🏭",t:"Hangar A12 activity record",s:"Confirms work performed on-site",f:"hangar_log_A12.csv",d:"14/05/2024"},{ic:"📦",t:"Component import / customs document",s:"Replacement engine entry traced",f:"customs_EA1001.pdf",d:"09/05/2024"},{ic:"📷",t:"Photo of removed component",s:"Visual evidence of swap",f:"IMG_engine_LH.jpg",d:"14/05/2024"}]},
+  {id:2,priority:"critical",priorityRank:3,urgent:true,doc:"Airworthiness Review Certificate (ARC)",event:"Annual airworthiness review",date:"03/2024",dateSort:20240301,component:"Aircraft (whole)",cause:"Review performed but ARC not on file",source:"CAMO",status:"Waiting request",statusClass:"wait",
+    detail:{why:"An annual airworthiness review is referenced in the records but the signed ARC was never archived in the dossier. Required to confirm the aircraft is airworthy for transfer.",causeEvent:"Annual airworthiness review (CAMO)",expected:"EASA Form 15a · Airworthiness Review Certificate",impact:"Blocks airworthiness confirmation & sale"},
+    crm:{name:"Sofia Marchetti",role:"CAMO Compliance Lead",company:"Meridian CAMO Services",email:"s.marchetti@meridian-camo.eu",phone:"+356 2122 4408",origin:"Connected CRM",conf:"88%",linkReason:"Lié par l'IA via la signature CAMO présente sur les rapports de revue annuelle du dossier."},
+    evidence:[{ic:"📄",t:"Annual review report",s:"Review performed and documented",f:"annual_review_2024.pdf",d:"03/2024"},{ic:"📋",t:"CAMO compliance checklist",s:"Tasks closed before review",f:"camo_checklist.pdf",d:"02/2024"},{ic:"🗓",t:"Previous ARC (expired)",s:"Prior certificate on file",f:"ARC_2023.pdf",d:"03/2023"},{ic:"✍",t:"Logbook review entry",s:"Reviewer initials present",f:"logbook_2024.pdf · p.92",d:"03/2024"}]},
+  {id:3,priority:"high",priorityRank:2,urgent:false,doc:"Component Installation Report",event:"Propeller replacement",date:"08/09/2023",dateSort:20230908,component:"Propeller",cause:"Installation recorded in timeline but document unavailable",source:"Maintenance organization",status:"Verification required",statusClass:"verify",
+    detail:{why:"The propeller installation is logged in the event history, yet the corresponding installation report was never supplied in the dossier. Traceability of the part is therefore incomplete.",causeEvent:"Propeller (Ratier-Figeac 568F-1) installation",expected:"Component Installation Report + LLP back-to-birth",impact:"Affects component traceability & maintenance planning"},
+    crm:{name:"Luc Bernard",role:"Propeller Shop Coordinator",company:"Ratier-Figeac authorized MRO",email:"l.bernard@rf-propmro.fr",phone:"+33 5 62 24 71 30",origin:"From uploaded document",conf:"81%",linkReason:"Lié par l'IA via le nom du mécanicien retrouvé dans un bon de travail hélice uploadé récemment."},
+    evidence:[{ic:"📄",t:"Propeller work order (uploaded)",s:"Recently added to the dossier",f:"prop_WO_2023.pdf",d:"08/09/2023"},{ic:"🗓",t:"Removal/installation log",s:"Swap recorded in timeline",f:"logbook_2023.pdf · p.61",d:"08/09/2023"},{ic:"🏷",t:"Part tag photo",s:"Serial of fitted propeller",f:"IMG_prop_tag.jpg",d:"08/09/2023"},{ic:"📷",t:"Installation photo",s:"Propeller fitted on hub",f:"IMG_prop.jpg",d:"08/09/2023"}]},
+  {id:4,priority:"low",priorityRank:1,urgent:false,doc:"Inspection Certificate",event:"Routine inspection",date:"2022",dateSort:20220101,component:"Landing Gear",cause:"Non critical documentation gap",source:"Operator archive",status:"Not prioritized",statusClass:"np",
+    detail:{why:"A routine landing-gear inspection from 2022 lacks its signed certificate. Useful for completeness but the gear's airworthiness is not currently in question.",causeEvent:"Routine MLG inspection (2022)",expected:"Inspection Certificate (signed)",impact:"Documentation completeness only — not operationally blocking"},
+    crm:{name:"Anna Vella",role:"Records Officer",company:"Solara Regional (operator archive)",email:"a.vella@solara-regional.com",phone:"+356 2010 9931",origin:"Connected CRM",conf:"74%",linkReason:"Lié par l'IA au service archives de l'opérateur, détenteur des inspections de routine."},
+    evidence:[{ic:"📋",t:"Inspection task card",s:"Task scheduled & closed",f:"taskcard_MLG_2022.pdf",d:"2022"},{ic:"🗓",t:"Logbook entry",s:"Inspection referenced",f:"logbook_2022.pdf · p.44",d:"2022"}]},
+  {id:5,priority:"low",priorityRank:1,urgent:false,doc:"Cabin Configuration Record",event:"Interior refurbishment",date:"2021",dateSort:20210101,component:"Cabin / Interior",cause:"Refurbishment logged without configuration record",source:"Operator archive",status:"Not prioritized",statusClass:"np",
+    detail:{why:"A cabin refurbishment is noted in 2021 but the updated configuration record is missing. Relevant for completeness of the private-aviation interior spec, not airworthiness.",causeEvent:"Cabin interior refurbishment (2021)",expected:"Cabin Configuration Record",impact:"Documentation completeness only"},
+    crm:{name:"Anna Vella",role:"Records Officer",company:"Solara Regional (operator archive)",email:"a.vella@solara-regional.com",phone:"+356 2010 9931",origin:"Connected CRM",conf:"70%",linkReason:"Lié par l'IA au service archives de l'opérateur ayant géré l'aménagement cabine."},
+    evidence:[{ic:"📄",t:"Refurbishment work order",s:"Interior work recorded",f:"cabin_WO_2021.pdf",d:"2021"},{ic:"📐",t:"STC / mod approval reference",s:"Modification approved",f:"STC_ref_2021.pdf",d:"2021"}]},
+  {id:6,priority:"low",priorityRank:1,urgent:false,doc:"Aircraft Weighing Report",event:"Routine weighing",date:"2020",dateSort:20200101,component:"Airframe",cause:"Weighing event recorded, report not archived",source:"Operator archive",status:"Not prioritized",statusClass:"np",
+    detail:{why:"A routine weighing is referenced in 2020 but the signed report is absent. Useful to confirm weight & balance baseline, not currently blocking.",causeEvent:"Routine aircraft weighing (2020)",expected:"Weighing Report (signed)",impact:"Documentation completeness only"},
+    crm:{name:"Anna Vella",role:"Records Officer",company:"Solara Regional (operator archive)",email:"a.vella@solara-regional.com",phone:"+356 2010 9931",origin:"Connected CRM",conf:"68%",linkReason:"Lié par l'IA au service archives de l'opérateur, détenteur des pesées périodiques."},
+    evidence:[{ic:"🗓",t:"Weighing event log",s:"Weighing referenced in records",f:"logbook_2020.pdf · p.30",d:"2020"},{ic:"📐",t:"Scale calibration certificate",s:"Equipment used was calibrated",f:"scale_cal_2020.pdf",d:"2020"}]}
+];
+
+// Timeline: each event lists the documents EXPECTED for that event type (present / missing->docId)
+const TIMELINE=[
+  {y:2015,type:"deliver",label:"Delivery",icon:"🛫",title:"Aircraft delivered — sortie de concession",date:"12/03/2015",desc:"Livré neuf par ATR à Solara Regional (opérateur d'aviation privée). Mise en exploitation privée.",exp:[{n:"Certificate of Delivery"},{n:"Export Certificate of Airworthiness"},{n:"Weight & Balance baseline"}]},
+  {y:2015,type:"flight",label:"Private flights",icon:"✈",title:"First private operations",date:"2015",desc:"Premiers vols en aviation privée · 410 cycles · 760 heures sur l'année.",exp:[{n:"Flight & journey logs 2015"}]},
+  {y:2017,type:"inspect",label:"Inspection",icon:"🔍",title:"Scheduled heavy inspection",date:"22/06/2017",desc:"Visite lourde planifiée. Aucune anomalie majeure relevée.",exp:[{n:"Inspection report"},{n:"Task cards pack"}]},
+  {y:2019,type:"flight",label:"Private flights",icon:"✈",title:"Continued private operations",date:"2019",desc:"Exploitation privée régulière · 380 cycles · 690 heures sur l'année.",exp:[{n:"Flight & journey logs 2019"}]},
+  {y:2019,type:"install",label:"Component install",icon:"🔧",title:"Engine RH removed (original EA1002)",date:"21/09/2019",desc:"Moteur RH d'origine déposé, ~10 693 cy LLP restants.",exp:[{n:"Removal Work Order"},{n:"Engine LLP disposition record"}]},
+  {y:2020,type:"inspect",label:"Weighing",icon:"⚖",title:"Routine aircraft weighing",date:"2020",desc:"Pesée périodique de l'avion.",exp:[{n:"Aircraft Weighing Report",docId:6},{n:"Updated Weight & Balance"}]},
+  {y:2021,type:"install",label:"Refurbishment",icon:"🪑",title:"Cabin interior refurbishment",date:"2021",desc:"Réaménagement cabine (configuration aviation privée).",exp:[{n:"Cabin Configuration Record",docId:5},{n:"STC / mod approval"}]},
+  {y:2022,type:"inspect",label:"Inspection",icon:"🔍",title:"Routine landing gear inspection",date:"2022",desc:"Inspection du train d'atterrissage.",exp:[{n:"Inspection Certificate",docId:4},{n:"Inspection task card"}]},
+  {y:2023,type:"install",label:"Component install",icon:"🔧",title:"Propeller replacement",date:"08/09/2023",desc:"Remplacement hélice Ratier-Figeac 568F-1.",exp:[{n:"Component Installation Report",docId:3},{n:"EASA Form 1 (propeller)"}]},
+  {y:2024,type:"inspect",label:"Airworthiness review",icon:"📋",title:"Annual airworthiness review",date:"03/2024",desc:"Revue annuelle de navigabilité effectuée par le CAMO.",exp:[{n:"Airworthiness Review Certificate (ARC)",docId:2},{n:"Annual review report"}]},
+  {y:2024,type:"alert",label:"Non-conformity",icon:"⛔",title:"Engine LH replacement — NON-CONFORMITY",date:"14/05/2024",desc:"Dépose/repose moteur PW127M à Hangar A12 (WO #964245). Aucun certificat de remise en service n'accompagne l'installation.",ground:true,exp:[{n:"Work Order #964245"},{n:"Engine Maintenance Release Certificate",docId:1},{n:"Technician sign-off sheet"}]},
+  {y:2025,type:"flight",label:"Private flights",icon:"✈",title:"Reduced operations before lease return",date:"2025",desc:"Vols réduits en vue du retour de lease.",exp:[{n:"Flight & journey logs 2025"}]},
+  {y:2025,type:"inspect",label:"Dossier",icon:"📋",title:"Lease return dossier compiled",date:"21/10/2025",desc:"Constitution du dossier de retour. Spare Engine détecte 67 documents manquants.",exp:[{n:"Dossier completeness review"}]}
+];
+
+const CRM=[
+  {name:"James Holloway",role:"Maintenance Records Manager",company:"Example Aviation Maintenance Ltd",email:"j.holloway@exampleavmro.com",origin:"Connected CRM",linkedDocs:"Engine Maintenance Release Certificate",found:"WO #964245 · technician sign-off"},
+  {name:"Sofia Marchetti",role:"CAMO Compliance Lead",company:"Meridian CAMO Services",email:"s.marchetti@meridian-camo.eu",origin:"Connected CRM",linkedDocs:"Airworthiness Review Certificate (ARC)",found:"Annual review reports"},
+  {name:"Luc Bernard",role:"Propeller Shop Coordinator",company:"Ratier-Figeac authorized MRO",email:"l.bernard@rf-propmro.fr",origin:"From uploaded document",linkedDocs:"Component Installation Report",found:"Uploaded propeller work order"},
+  {name:"Anna Vella",role:"Records Officer",company:"Solara Regional (operator archive)",email:"a.vella@solara-regional.com",origin:"Connected CRM",linkedDocs:"Inspection · Cabin · Weighing records",found:"Operator archive index"},
+  {name:"K. Dubois",role:"Lead Technician",company:"Hangar A12 — line maintenance",email:"k.dubois@hangar-a12.aero",origin:"From uploaded document",linkedDocs:"Engine LH installation evidence",found:"Sign-off sheet signoff_EA1001.pdf"}
+];
+
+const uploaded={},requested={};
+let selectedId=1;
+const badgeMap={critical:'<span class="badge b-crit"><span class="d"></span>Critical</span>',high:'<span class="badge b-high"><span class="d"></span>High</span>',low:'<span class="badge b-low"><span class="d"></span>Low</span>'};
+let activeFilter="all",query="",sortKey="priority",sortDir=-1;
+const $=id=>document.getElementById(id);
+const tbody=$("tbody"),rowCount=$("rowCount");
+function docById(id){return DATA.find(x=>x.id===id);}
+function initials(n){return n.split(/\s+/).map(w=>w[0]).join("").slice(0,2).toUpperCase();}
+
+// ---------- status lifecycle ----------
+function statusFor(r){
+  if(uploaded[r.id])return{label:"Document received",cls:"recv",icon:"✓"};
+  if(requested[r.id])return{label:"Request sent",cls:"sent",icon:"✉"};
+  return{label:r.status,cls:r.statusClass,icon:"●"};
+}
+
+// ---------- KPIs ----------
+function updateKpis(){
+  let recovered=45,total=67,urgent=12;
+  DATA.forEach(r=>{if(uploaded[r.id]){recovered++;total--;if(r.urgent)urgent--;}});
+  $("kpiRecovered").textContent=recovered;
+  $("kpiTotal").textContent=total;
+  $("kpiUrgent").textContent=urgent;
+  const avg=Math.round(DATA.reduce((a,r)=>a+parseInt(r.crm.conf),0)/DATA.length);
+  $("kpiConf").textContent=avg+"%";
+  // grounding clears once doc 1 (engine release) is received
+  $("grounded").style.display=uploaded[1]?"none":"flex";
+}
+
+// ---------- table ----------
+function getRows(){
+  let rows=DATA.filter(r=>{
+    if(activeFilter!=="all"&&r.priority!==activeFilter)return false;
+    if(query){const hay=(r.doc+r.event+r.component+r.cause+r.source+r.status).toLowerCase();if(!hay.includes(query))return false;}
+    return true;
+  });
+  rows.sort((a,b)=>{let av,bv;switch(sortKey){case"priority":av=a.priorityRank;bv=b.priorityRank;break;case"date":av=a.dateSort;bv=b.dateSort;break;case"doc":av=a.doc;bv=b.doc;break;case"component":av=a.component;bv=b.component;break;case"status":av=a.status;bv=b.status;break;case"event":av=a.event;bv=b.event;break;default:av=a.priorityRank;bv=b.priorityRank;}if(av<bv)return -1*sortDir;if(av>bv)return 1*sortDir;return 0;});
+  return rows;
+}
+function render(){
+  const rows=getRows();rowCount.textContent=rows.length+" of "+DATA.length;
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="9"><div class="empty"><div class="face">🎉</div><div class="t">Aucun document manquant ici !</div><div class="s">Aucun document ne correspond à vos filtres. Essayez une autre priorité ou videz la recherche.</div></div></td></tr>';return;}
+  tbody.innerHTML=rows.map(r=>{
+    const st=statusFor(r);
+    const up=uploaded[r.id]?'<button class="up-btn done" data-up="'+r.id+'">✓ Uploaded · Replace</button>':'<button class="up-btn" data-up="'+r.id+'">⬆ Replace / Upload</button>';
+    const req=requested[r.id]?'<button class="req-btn sent" data-req="'+r.id+'">✉ Request sent · Relancer</button>':'<button class="req-btn" data-req="'+r.id+'">✉ Request document</button>';
+    const sel=r.id===selectedId?" selected":"";
+    return `
+    <tr class="row-main${sel}" data-id="${r.id}">
+      <td><span class="expand-ico">▶</span>${badgeMap[r.priority]}</td>
+      <td><div class="doc-name">${r.doc}</div></td>
+      <td>${r.event}</td><td>${r.date}</td><td>${r.component}</td>
+      <td class="muted" style="max-width:220px">${r.cause}</td>
+      <td><div style="max-width:180px">${r.source}</div></td>
+      <td><span class="status-tag ${st.cls}">${st.icon} ${st.label}</span></td>
+      <td><div class="actions-cell"><button class="ev-btn" data-ev="${r.id}">📎 Evidence</button>${up}${req}</div></td>
+    </tr>
+    <tr class="detail-row" data-detail="${r.id}"><td colspan="9"><div class="detail-inner"><div class="detail-grid">
+      <div class="detail-box full"><div class="k">Why is this document missing?</div><div class="v" style="font-weight:500;color:var(--text)">${r.detail.why}</div></div>
+      <div class="detail-box"><div class="k">Event that created the gap</div><div class="v">${r.detail.causeEvent}</div></div>
+      <div class="detail-box"><div class="k">Expected evidence</div><div class="v">${r.detail.expected}</div></div>
+      <div class="detail-box"><div class="k">Operational impact</div><div class="v">${r.detail.impact}</div></div>
+      <div class="detail-actions">
+        <button class="up-btn" data-up="${r.id}">⬆ Replace / Upload</button>
+        <button class="req-btn" data-req="${r.id}">✉ Request via CRM</button>
+        <button class="ev-btn" data-godoc-tl="${r.id}">🕓 Localiser dans la timeline</button>
+      </div>
+    </div></div></td></tr>`;
+  }).join("");
+}
+
+// ---------- side panels (dynamic per selected doc) ----------
+function renderSide(){
+  const r=docById(selectedId);const c=r.crm;
+  $("srcSel").textContent=r.doc;
+  $("srcBody").innerHTML=`
+    <span class="src-ai-tag">🤖 AI Suggestion</span>
+    <div class="src-company">${c.company}</div>
+    <div class="src-reason">${c.role} · ${c.name}</div>
+    <div class="muted" style="font-size:12px;font-weight:700;margin-top:12px">Lié au document : <span style="color:var(--ink)">${r.doc}</span></div>
+    <ul class="src-list">
+      <li><span class="tick">✓</span> Source : ${c.origin}</li>
+      <li><span class="tick">✓</span> Événement : ${r.event} (${r.date})</li>
+      <li><span class="tick">✓</span> Composant : ${r.component}</li>
+      <li><span class="tick">✓</span> Corrélation timeline de l'avion</li>
+    </ul>
+    <div class="conf">
+      <div class="top"><span class="lab">Confidence Score</span><span class="pct">${c.conf}</span></div>
+      <div class="bar"><div class="fill" style="width:${c.conf}"></div></div>
+      <div class="legend">Probabilité estimée que ce contact détienne réellement le document manquant.</div>
+    </div>
+    <button class="btn btn-primary src-req" data-req="${r.id}">✉ Request via this source</button>`;
+  $("evCount").textContent=r.evidence.length;
+  $("evInner").innerHTML=r.evidence.map(e=>`<div class="ev-item"><div class="pin">${e.ic}</div><div><div class="t">${e.t}</div><div class="s">${e.s}</div><div class="file">${e.f}</div></div><div class="dt">${e.d}</div></div>`).join("");
+}
+function selectDoc(id){selectedId=id;render();renderSide();}
+
+// ---------- table click handling ----------
+let pendingUploadId=null;const fileInput=$("fileInput");
+document.addEventListener("click",e=>{
+  const upBtn=e.target.closest("[data-up]");
+  if(upBtn){e.stopPropagation();pendingUploadId=+upBtn.dataset.up;fileInput.value="";fileInput.click();return;}
+  const reqBtn=e.target.closest("[data-req]");
+  if(reqBtn){e.stopPropagation();openCrmModal(+reqBtn.dataset.req);return;}
+  const evBtn=e.target.closest("[data-ev]");
+  if(evBtn){e.stopPropagation();selectDoc(+evBtn.dataset.ev);openAiPop();return;}
+  const tlBtn=e.target.closest("[data-godoc-tl]");
+  if(tlBtn){e.stopPropagation();gotoTimelineEvent(+tlBtn.dataset.godocTl);return;}
+});
+tbody.addEventListener("click",e=>{
+  if(e.target.closest("button"))return;
+  const row=e.target.closest(".row-main");if(!row)return;
+  const id=+row.dataset.id;
+  const detail=tbody.querySelector(`[data-detail="${id}"]`);
+  row.classList.toggle("open");detail.classList.toggle("open");
+  selectDoc(id);
+});
+fileInput.addEventListener("change",()=>{
+  if(pendingUploadId==null)return;
+  const firstTime=!uploaded[pendingUploadId];
+  uploaded[pendingUploadId]=true;
+  const doc=docById(pendingUploadId);
+  const fname=fileInput.files&&fileInput.files[0]?fileInput.files[0].name:"document";
+  showToast(`« ${doc.doc} » ${firstTime?"ajouté au dossier":"remplacé"} (${fname})`);
+  pendingUploadId=null;updateKpis();render();buildTimeline();
+  if(eventModalBg.classList.contains("open")&&currentEvtIdx!=null)openEventModal(currentEvtIdx);
+});
+
+const toast=$("toast"),toastMsg=$("toastMsg");let toastTimer;
+function showToast(msg){toastMsg.textContent=msg;toast.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove("show"),3400);}
+
+// ---------- filters / search / sort ----------
+document.querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));c.classList.add("active");activeFilter=c.dataset.f;render();}));
+$("search").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();render();});
+$("searchTab").addEventListener("click",()=>{showTab("tabMissing","missing");$("search").focus();$("search").scrollIntoView({behavior:"smooth",block:"center"});});
+document.querySelectorAll("th[data-sort]").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.sort;if(sortKey===k){sortDir*=-1;}else{sortKey=k;sortDir=(k==="priority"||k==="date")?-1:1;}render();}));
+
+// ---------- document detail modal ----------
+const modalBg=$("modalBg");let modalId=null;
+function openModal(id){
+  modalId=id;selectDoc(id);const r=docById(id);const st=statusFor(r);
+  $("mBadge").innerHTML=badgeMap[r.priority];$("mTitle").textContent=r.doc;$("mSub").textContent=r.event+" · "+r.date;
+  $("mBody").innerHTML=`
+    <div class="modal-row"><span class="k">Component</span><span class="v">${r.component}</span></div>
+    <div class="modal-row"><span class="k">Detected cause</span><span class="v">${r.cause}</span></div>
+    <div class="modal-row"><span class="k">Event that created the gap</span><span class="v">${r.detail.causeEvent}</span></div>
+    <div class="modal-row"><span class="k">Expected evidence</span><span class="v">${r.detail.expected}</span></div>
+    <div class="modal-row"><span class="k">Operational impact</span><span class="v">${r.detail.impact}</span></div>
+    <div class="modal-row"><span class="k">Status</span><span class="v">${st.label}</span></div>
+    <div class="modal-row"><span class="k">🤖 AI recovery source</span><span class="v">${r.crm.company} · ${r.crm.conf}</span></div>`;
+  modalBg.classList.add("open");
+}
+$("mReq").onclick=()=>{if(modalId!=null){const id=modalId;modalBg.classList.remove("open");openCrmModal(id);}};
+$("mLocate").onclick=()=>{if(modalId!=null)gotoTimelineEvent(modalId);};
+$("mClose").onclick=()=>modalBg.classList.remove("open");
+$("mCancel").onclick=()=>modalBg.classList.remove("open");
+modalBg.addEventListener("click",e=>{if(e.target===modalBg)modalBg.classList.remove("open");});
+
+// ---------- CRM contact + email draft modal ----------
+const crmModalBg=$("crmModalBg");let crmReqId=null;
+function openCrmModal(id){
+  crmReqId=id;const r=docById(id);const c=r.crm;
+  const originCls=c.origin==="Connected CRM"?"origin-crm":"origin-doc";
+  const subject=`Document request — ${r.doc} — ATR72-212A MSN 0001 (9H-SLA)`;
+  const body=`Bonjour ${c.name.split(" ")[0]},\n\nDans le cadre de l'audit de retour de lease de l'ATR72-212A (MSN 0001, 9H-SLA), il nous manque le document suivant :\n\n• ${r.doc}\n• Événement lié : ${r.event} (${r.date})\n• Composant : ${r.component}\n\nPourriez-vous nous transmettre une copie signée ? Merci d'avance.\n\nCordialement,\nMeridian Asset Partners — Audit team`;
+  $("cmName").textContent=c.name;$("cmRole").textContent=c.role+" · "+c.company;
+  $("cmBody").innerHTML=`
+    <div class="cm-contact"><div class="av">${initials(c.name)}</div><div><div class="nm">${c.name}</div><div class="cp">${c.company}</div></div><span class="origin-tag ${originCls}" style="margin-left:auto">${c.origin}</span></div>
+    <div class="cm-link"><div>🔗<div class="k" style="margin-top:2px">Comment l'IA a lié ce contact</div><div class="v">${c.linkReason}</div></div></div>
+    <div class="mail">
+      <div class="mail-line"><span class="lab">To</span><span class="val" style="color:var(--blue)">${c.email}</span><span class="mail-tag">Brouillon prérempli</span></div>
+      <div class="mail-line"><span class="lab">Subject</span><span class="val">${subject}</span></div>
+      <textarea class="mail-body" id="mailBody">${body}</textarea>
+    </div>`;
+  crmModalBg.classList.add("open");
+}
+function sendCrmRequest(){
+  if(crmReqId==null)return;
+  requested[crmReqId]=true;const r=docById(crmReqId);
+  showToast(`Demande envoyée à ${r.crm.name} · ${r.crm.company}`);
+  crmModalBg.classList.remove("open");crmReqId=null;render();
+  if(eventModalBg.classList.contains("open")&&currentEvtIdx!=null)openEventModal(currentEvtIdx);
+}
+$("cmSend").onclick=sendCrmRequest;
+$("cmClose").onclick=()=>crmModalBg.classList.remove("open");
+$("cmCancel").onclick=()=>crmModalBg.classList.remove("open");
+crmModalBg.addEventListener("click",e=>{if(e.target===crmModalBg)crmModalBg.classList.remove("open");});
+
+// ---------- Event modal: expected documents for an event ----------
+const eventModalBg=$("eventModalBg");let currentEvtIdx=null;
+const typeClass={flight:"et-flight",repair:"et-repair",inspect:"et-inspect",deliver:"et-deliver",install:"et-install",alert:"et-alert"};
+function openEventModal(idx){
+  currentEvtIdx=idx;const ev=TIMELINE[idx];
+  const expDocs=ev.exp||[];
+  let missingCount=expDocs.filter(d=>d.docId&&!uploaded[d.docId]).length;
+  $("emType").innerHTML=`${ev.icon} ${ev.label}`;
+  $("emTitle").textContent=ev.title;$("emSub").textContent=ev.date+" · "+ev.desc;
+  const rows=expDocs.map(d=>{
+    if(!d.docId){
+      return `<div class="exp-item"><div class="exp-ic ok">✓</div><div><div class="exp-name">${d.n}</div><div class="exp-stat ok">Présent dans le dossier</div></div></div>`;
+    }
+    const doc=docById(d.docId);const st=statusFor(doc);
+    let statTxt,statCls;
+    if(uploaded[d.docId]){statTxt="Reçu — réintégré au dossier";statCls="ok";}
+    else if(requested[d.docId]){statTxt="Demande envoyée à "+doc.crm.name;statCls="sent";}
+    else{statTxt="Manquant — "+doc.priority.toUpperCase();statCls="miss";}
+    const icCls=uploaded[d.docId]?"ok":"miss";const icTxt=uploaded[d.docId]?"✓":"⛔";
+    const act=uploaded[d.docId]
+      ?'<span class="exp-stat ok">✓</span>'
+      :`<button class="mini-btn" data-up="${d.docId}">⬆ Upload</button><button class="mini-btn primary" data-req="${d.docId}">✉ Request</button><button class="mini-btn" data-openmiss="${d.docId}">Open</button>`;
+    return `<div class="exp-item"><div class="exp-ic ${icCls}">${icTxt}</div><div style="flex:1"><div class="exp-name">${d.n}</div><div class="exp-stat ${statCls}">${statTxt}</div></div><div class="exp-act">${act}</div></div>`;
+  }).join("");
+  $("emBody").innerHTML=`
+    <div class="evt-summary">
+      <div class="s-box"><div class="k">Documents attendus</div><div class="v">${expDocs.length}</div></div>
+      <div class="s-box"><div class="k">Encore manquants</div><div class="v ${missingCount?'miss':''}">${missingCount}</div></div>
+      <div class="s-box"><div class="k">Date événement</div><div class="v">${ev.date}</div></div>
+    </div>
+    ${ev.ground&&!uploaded[1]?'<div class="ground-pill">⛔ AIRCRAFT GROUNDED — cannot take off</div>':''}
+    <div class="sec-title" style="margin:18px 0 4px"><span class="ico">📋</span> Documents attendus pour cet événement</div>
+    ${rows}`;
+  eventModalBg.classList.add("open");
+}
+$("emClose").onclick=()=>eventModalBg.classList.remove("open");
+$("emCancel").onclick=()=>eventModalBg.classList.remove("open");
+eventModalBg.addEventListener("click",e=>{if(e.target===eventModalBg)eventModalBg.classList.remove("open");});
+// "Open" a missing doc from event modal -> go to Missing Documents
+document.addEventListener("click",e=>{const b=e.target.closest("[data-openmiss]");if(b){e.stopPropagation();eventModalBg.classList.remove("open");gotoMissingDoc(+b.dataset.openmiss);}});
+
+// ---------- timeline ----------
+let tlSortDir="desc",tlMissOnly=false;
+function eventHasMissing(e){return (e.exp||[]).some(d=>d.docId&&!uploaded[d.docId]);}
+function buildTimeline(){
+  const tl=$("timeline");
+  let entries=TIMELINE.map((e,i)=>({e,i}));
+  if(tlMissOnly)entries=entries.filter(o=>eventHasMissing(o.e));
+  const shown=entries.length;
+  $("tlCount").innerHTML=`Affichage de <b>${shown}</b> événement${shown>1?"s":""} clé${shown>1?"s":""}${tlMissOnly?" avec documents manquants":""} · <b>1 756</b> au total pour cet avion`;
+  if(!shown){tl.innerHTML='<div class="tl-empty"><div class="face">✅</div><div><b>Aucun événement avec document manquant.</b><br>Tous les documents attendus ont été récoltés.</div></div>';return;}
+  const years=[...new Set(entries.map(o=>o.e.y))].sort((a,b)=>tlSortDir==="asc"?a-b:b-a);
+  let html="";
+  years.forEach(yr=>{
+    const idxs=entries.filter(o=>o.e.y===yr).sort((a,b)=>tlSortDir==="asc"?a.i-b.i:b.i-a.i);
+    const miss=idxs.filter(o=>eventHasMissing(o.e)).length;
+    const missTag=miss?`<span class="cnt" style="background:var(--red-soft);color:var(--red)">${miss} manquant${miss>1?"s":""}</span>`:"";
+    html+=`<div class="tl-year"><div class="tl-year-head"><span class="yr">${yr}</span><span class="cnt">${idxs.length} event${idxs.length>1?"s":""}</span>${missTag}<span class="ln"></span></div><div class="tl-track">`;
+    idxs.forEach(({e,i})=>{
+      const tcls=typeClass[e.type];
+      const chips=(e.exp||[]).map(d=>{
+        if(!d.docId)return `<span class="tl-chip ok">✓ ${d.n}</span>`;
+        const got=uploaded[d.docId];
+        return `<span class="tl-chip ${got?'ok':'miss'}">${got?'✓':'⛔'} ${d.n}</span>`;
+      }).join("");
+      const ground=(e.ground&&!uploaded[1])?'<div><span class="ground-pill">⛔ AIRCRAFT GROUNDED — cannot take off</span></div>':"";
+      html+=`<div class="tl-event${e.type==='alert'?' alert':''}${e.type==='deliver'?' delivery':''}${e.type==='repair'?' repair':''}" data-evt="${i}">
+        <div class="node"></div>
+        <div class="top"><span class="etype ${tcls}">${e.icon} ${e.label}</span><span class="date">${e.date}</span></div>
+        <h4>${e.title}</h4><p>${e.desc}</p>
+        <div class="tl-docs">${chips}</div>${ground}
+        <span class="tl-open">→ Cliquez pour les documents attendus & la récolte</span>
+      </div>`;
+    });
+    html+=`</div></div>`;
+  });
+  tl.innerHTML=html;
+}
+$("timeline").addEventListener("click",e=>{const card=e.target.closest("[data-evt]");if(card)openEventModal(+card.dataset.evt);});
+$("missOnly").addEventListener("click",()=>{tlMissOnly=!tlMissOnly;$("missOnly").classList.toggle("on",tlMissOnly);buildTimeline();});
+document.querySelectorAll("#tlSort button").forEach(b=>b.addEventListener("click",()=>{tlSortDir=b.dataset.dir;document.querySelectorAll("#tlSort button").forEach(x=>x.classList.toggle("on",x===b));buildTimeline();}));
+
+// locate a missing document directly in the timeline (scroll + highlight)
+function gotoTimelineEvent(docId){
+  const idx=TIMELINE.findIndex(e=>(e.exp||[]).some(d=>d.docId===docId));
+  modalBg.classList.remove("open");
+  if(tlMissOnly&&idx>=0&&!eventHasMissing(TIMELINE[idx])){tlMissOnly=false;$("missOnly").classList.remove("on");}
+  showTab(null,"timeline");buildTimeline();
+  setTimeout(()=>{
+    const card=document.querySelector('.tl-event[data-evt="'+idx+'"]');
+    if(card){card.scrollIntoView({behavior:"smooth",block:"center"});void card.offsetWidth;card.classList.add("flash");setTimeout(()=>card.classList.remove("flash"),2000);}
+  },260);
+}
+
+// ---------- CRM table ----------
+function buildCrm(){
+  $("crmCount").textContent=CRM.length;
+  $("crmBody").innerHTML=CRM.map(c=>{
+    const cls=c.origin==="Connected CRM"?"origin-crm":"origin-doc";
+    return `<tr>
+      <td><div class="crm-name"><span class="crm-avatar">${initials(c.name)}</span><b>${c.name}</b></div><div class="muted" style="font-size:12px;margin-top:3px">${c.email}</div></td>
+      <td>${c.company}</td><td class="muted">${c.role}</td>
+      <td><span class="origin-tag ${cls}">${c.origin}</span></td>
+      <td>${c.linkedDocs}</td><td class="muted">${c.found}</td>
+      <td><button class="ev-btn">✉ Email</button></td>
+    </tr>`;
+  }).join("");
+}
+
+// ---------- views / tabs ----------
+function showView(view){
+  $("view-missing").classList.toggle("active",view==="missing");
+  $("view-timeline").classList.toggle("active",view==="timeline");
+  $("view-crm").classList.toggle("active",view==="crm");
+  const onMissing=view==="missing";
+  if(!onMissing)aiPop.classList.remove("open");
+  $("aiFab").style.display=(onMissing&&!aiPop.classList.contains("open"))?"flex":"none";
+}
+function showTab(tabId,view){
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  if(tabId)$(tabId).classList.add("active");
+  else{const t=document.querySelector('.tab[data-view="'+view+'"]');if(t)t.classList.add("active");}
+  showView(view);window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll(".tab").forEach(t=>{
+  t.addEventListener("click",()=>{
+    if(t.classList.contains("soon")){showToast("Onglet de démonstration — bientôt disponible");return;}
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");showView(t.dataset.view||"missing");window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+function gotoMissingDoc(id){showTab("tabMissing","missing");selectDoc(id);setTimeout(()=>openModal(id),120);}
+$("goToDoc").addEventListener("click",()=>gotoMissingDoc(1));
+$("helpDismiss").addEventListener("click",()=>$("helpBanner").style.display="none");
+$("crmHelpDismiss").addEventListener("click",()=>$("crmHelp").style.display="none");
+const aiPop=$("aiPop");
+function openAiPop(){aiPop.classList.add("open");$("aiFab").style.display="none";}
+function closeAiPop(){aiPop.classList.remove("open");if($("view-missing").classList.contains("active"))$("aiFab").style.display="flex";}
+$("aiFab").addEventListener("click",openAiPop);
+$("aiPopClose").addEventListener("click",closeAiPop);
+document.querySelectorAll(".ai-acc-head").forEach(h=>h.addEventListener("click",()=>h.parentElement.classList.toggle("open")));
+
+// ---------- init ----------
+buildTimeline();buildCrm();render();renderSide();updateKpis();
+window.addEventListener("load",()=>{setTimeout(()=>document.querySelectorAll(".fill[data-w]").forEach(f=>f.style.width=f.dataset.w+"%"),150);});
+</script>
+</body>
+</html>
